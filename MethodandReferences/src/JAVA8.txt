@@ -1,0 +1,97 @@
+In Java, lambda expressions can be used to create functional interfaces, which are interfaces that have only one abstract method. These functional interfaces can then be used as the target type for lambda expressions and method references. Examples of functional interfaces in the Java standard library include java.util.function.Predicate, java.util.function.Consumer, and java.util.function.Function.
+
+
+
+
+AYUSH KUMAR SONE
+Howto use lambda expression ijava
+To use a lambda expression in Java, you need to have a functional interface as the target type for the lambda expression. Here is an example of using a lambda expression to implement a functional interface called MyFunctionalInterface:
+
+Copy code
+// Define the functional interface
+@FunctionalInterface
+interface MyFunctionalInterface {
+    void doSomething();
+}
+
+// Use the lambda expression to implement the interface
+MyFunctionalInterface myLambda = () -> System.out.println("Hello, World!");
+
+// Use the lambda expression
+myLambda.doSomething(); // prints "Hello, World!"
+You can also use a lambda expression to pass a function as a parameter to a method. Here is an example of using a lambda expression to pass a function that takes an integer and returns its square:
+
+Copy code
+import java.util.function.Function;
+
+class MyClass {
+    public static void process(Function<Integer, Integer> func) {
+        int result = func.apply(5);
+        System.out.println("Result: " + result);
+    }
+}
+
+public static void main(String[] args) {
+    MyClass.process(x -> x * x); // prints "Result: 25"
+}
+In this example, the process method takes a Function object, which is a functional interface, as a parameter. The lambda expression x -> x * x is passed as the argument, and it is used to calculate the square of the input.
+
+
+
+
+AYUSH KUMAR SONE
+where we can use lambda expression in collection framework
+In the Java collection framework, lambda expressions can be used with certain methods that take functional interfaces as arguments, such as forEach, filter, map, reduce, and sort. Here are some examples of using lambda expressions with the collection framework:
+
+forEach: This method takes a Consumer functional interface as an argument, and applies it to each element in the collection. Here's an example of using forEach with a lambda expression to print each element in a list:
+Copy code
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+numbers.forEach(n -> System.out.println(n));
+filter: This method takes a Predicate functional interface as an argument, and filters the elements in the collection based on the predicate. Here's an example of using filter with a lambda expression to get all the even numbers in a list:
+Copy code
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+numbers.stream().filter(n -> n % 2 == 0).forEach(n -> System.out.println(n));
+map: This method takes a Function functional interface as an argument, and applies it to each element in the collection, creating a new collection with the results. Here's an example of using map with a lambda expression to square each number in a list:
+Copy code
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+numbers.stream().map(n -> n * n).forEach(n -> System.out.println(n));
+reduce: This method takes a BinaryOperator functional interface as an argument, and applies it to the elements in the collection to reduce them to a single value. Here's an example of using reduce with a lambda expression to find the sum of numbers in a list:
+Copy code
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+int sum = numbers.stream().reduce(0, (a, b) -> a + b);
+System.out.println(sum);
+sort: This method takes a Comparator functional interface as an argument, and sorts the elements in the collection based on the comparator. Here's an example of using sort with a lambda expression to sort a list of strings in alphabetical order:
+Copy code
+List<String> words = Arrays.asList("apple", "banana", "cherry");
+words.sort((a, b) -> a.compareTo(b));
+words.forEach(System.out::println);
+These are just a few examples of how lambda expressions can be used with the collection framework. There are many other methods that also accept functional interfaces as arguments, such as findFirst, max, min, count, etc.
+
+
+
+
+AYUSH KUMAR SONE
+give example also for ramining extra
+Sure, here are some examples of using lambda expressions with the collection framework for the remaining methods:
+
+findFirst: This method returns an Optional object that contains the first element in the collection that satisfies a given predicate. Here's an example of using findFirst with a lambda expression to find the first even number in a list:
+Copy code
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+Optional<Integer> firstEven = numbers.stream().filter(n -> n % 2 == 0).findFirst();
+System.out.println(firstEven.orElse(-1));
+max: This method takes a Comparator functional interface as an argument, and returns the maximum element in the collection based on the comparator. Here's an example of using max with a lambda expression to find the word with the most letters in a list of strings:
+Copy code
+List<String> words = Arrays.asList("apple", "banana", "cherry");
+Optional<String> longestWord = words.stream().max((a, b) -> a.length() - b.length());
+System.out.println(longestWord.orElse(""));
+min: This method takes a Comparator functional interface as an argument, and returns the minimum element in the collection based on the comparator. Here's an example of using min with a lambda expression to find the word with the least letters in a list of strings:
+Copy code
+List<String> words = Arrays.asList("apple", "banana", "cherry");
+Optional<String> shortestWord = words.stream().min((a, b) -> a.length() - b.length());
+System.out.println(shortestWord.orElse(""));
+count: This method returns the number of elements in the collection that satisfy a given predicate. Here's an example of using count with a lambda expression to count the number of odd numbers in a list:
+Copy code
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+long oddCount = numbers.stream().filter(n -> n % 2 == 1).count();
+System.out.println(oddCount);
+These examples demonstrate how lambda expressions can be used with the collection framework in a concise and expressive way to perform various operations on the collections.

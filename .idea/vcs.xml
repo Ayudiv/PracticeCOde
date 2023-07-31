@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ArrayConcepts21" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Expense Management System/Expense-Managemenet-System-Ayush-" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Inventory-Management-System-Spring-Boot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/MultimoduleMicroservices/Product_order_inventory" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Product-Order-Notification-microservices-" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SpeakingClockServices_X" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/microservicesParent/CentralizedMicroservices" vcs="Git" />
+  </component>
+</project>
